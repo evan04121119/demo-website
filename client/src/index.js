@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import AppContainer from './App/AppContainer';
+import AppContainer from './containers/App/AppContainer';
 
-const history = "";
-const conf = "";
+const history = "history";
+const conf = "conf";
 render(
   <React.StrictMode>
     <AppContainer history={history} conf={conf} />
