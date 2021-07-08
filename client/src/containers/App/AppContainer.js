@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import InscriptionContainer from "../Inscription/InscriptionContainer";
 import LoginContainer from "../Login/LoginContainer";
 import UserContainer from "../UserContainer";
+import MainPageContainer from "../MainPageContainer";
+import ErrorContainer from "../Error/ErrorContainer";
 
+// TODO: add ConnectedRouter, ProtectedRouter
 class AppContainer extends Component {
   componentDidMount() {
   }
@@ -13,11 +16,15 @@ class AppContainer extends Component {
     console.log(conf + " " + history);
 
     return (
-      <Switch>
-        <Route exact path="/signup" Component={InscriptionContainer} />
-        <Route exact path="/Login" Component={LoginContainer} />
-        <Route exact path="/Users" Component={UserContainer} />
-      </Switch>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/user/signup" component={InscriptionContainer}/>
+          <Route exact path="/user/login" component={LoginContainer}/>
+          <Route exact path="/users" component= {UserContainer}/>
+          <Route exact path="/" component={MainPageContainer}/>
+          <Route component={ErrorContainer} />
+        </Switch>           
+      </BrowserRouter>
     )
   }
 }
